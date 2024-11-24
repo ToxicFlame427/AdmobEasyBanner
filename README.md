@@ -8,7 +8,7 @@ A few things this banner widget can do:
 <ul>
   <li>Accepts parameters:</li>
   <ul>
-    <li><strong>androidBannerId</strong>strong> (String) - The Id of the banner to be shown on Android</li>
+    <li><strong>androidBannerId</strong> (String) - The Id of the banner to be shown on Android</li>
     <li><strong>iosBannerId</strong> (String) - The Id of the banner to be shown to iOS users</li>
     <li><strong>isTest</strong> (Boolean) - If true, Google's default test Ids will be used. If false, the provided Ids will be used</li>
     <li><strong>isShown</strong> (Boolean) - Shows the ad based on if the value is true or false, your program can dynamically change this</li>
@@ -56,7 +56,7 @@ class _BannerAdViewState extends State<BannerAdView> {
   BannerAd? _bannerAd;
   bool _isLoaded = false;
 
-  // Initially use test ad units
+  // Initially use test ad units - THESE ARE GOOGLE TEST UNITS, NOT REAL ONES
   String adUnitId = Platform.isAndroid
       ? 'ca-app-pub-3940256099942544/9214589741'
       : 'ca-app-pub-3940256099942544/2435281174';
