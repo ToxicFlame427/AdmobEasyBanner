@@ -22,7 +22,7 @@ A few things this banner widget can do:
 ## Setup
 **Step 1:** Make sure you have included the Google Admob SDK in your Flutter project. It can be installed from <a href="https://pub.dev/packages/google_mobile_ads">pub.dev</a>.
 
-**Step 2:** Follow the steps to setup your application to receive ads through the </a href="https://developers.google.com/admob/flutter/quick-start">AdMob Flutter Quick-Start</a>
+**Step 2:** Follow the steps to setup your application to receive ads through the <a href="https://developers.google.com/admob/flutter/quick-start">AdMob Flutter Quick-Start</a>
 
 **Step 3:** Download the supplied `banner_ad.dart` file and add it to your project, or copy the code below and paste it within a new file and name it whatever you like:
 ```
