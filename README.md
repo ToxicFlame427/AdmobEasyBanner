@@ -8,11 +8,11 @@ A few things this banner widget can do:
 <ul>
   <li>Accepts parameters:</li>
   <ul>
-    <li>**androidBannerId** (String) - The Id of the banner to be shown on Android</li>
-    <li>**iosBannerId** (String) - The Id of the banner to be shown to iOS users</li>
-    <li>**isTest** (Boolean) - If true, Google's default test Ids will be used. If false, the provided Ids will be used</li>
-    <li>**isShown** (Boolean) - Shows the ad based on if the value is true or false, your program can dynamically change this</li>
-    <li>**bannerSize** (AdSize) - Accepts different banner sizes from the AdMob SDK, from the class AdSize </li>
+    <li><strong>androidBannerId</strong>strong> (String) - The Id of the banner to be shown on Android</li>
+    <li><strong>iosBannerId</strong> (String) - The Id of the banner to be shown to iOS users</li>
+    <li><strong>isTest</strong> (Boolean) - If true, Google's default test Ids will be used. If false, the provided Ids will be used</li>
+    <li><strong>isShown</strong> (Boolean) - Shows the ad based on if the value is true or false, your program can dynamically change this</li>
+    <li><strong>bannerSize</strong> (AdSize) - Accepts different banner sizes from the AdMob SDK, from the class AdSize </li>
   </ul>
   <li>Fits wll in smaller spaces with default code</li>
   <li>Reloads the ad when a new ad request is called</li>
@@ -130,9 +130,45 @@ Now that the base setup is complete, here is an example use case of this widget.
 ## Example Implementation
 When using the banner widget, it can be placed freely around your application. Here is an example of how it could be used:
 ```
-
+@override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+          appBar: AppBar(
+            toolbarHeight: 0,
+            bottom: TabBar(
+              controller: _tabController,
+              labelColor: Colors.green,
+              unselectedLabelColor: Colors.green,
+              indicatorColor: Colors.green,
+              indicatorSize: TabBarIndicatorSize.tab,
+              tabs: const [
+                Tab(
+                  icon: Icon(Icons.search),
+                  text: "Search",
+                ),
+                Tab(icon: Icon(Icons.favorite), text: "Favorites"),
+              ],
+            ),
+          ),
+          body: Column(children: [
+            Flexible(
+                child: TabBarView(
+                    controller: _tabController,
+                    children: const [PlantSearch(), FavoritePlants()])),
+            // MARK: USAGE - Banner ad is shown here
+            BannerAdView(
+              androidBannerId: "android id",
+              iOSBannerId: "iOS id",
+              isTest: true,
+              isShown: true,
+              bannerSize: AdSize.banner,
+            ),
+          ])),
+    );
 ```
-A short clip that shows the appearance and reload of the advertisement
-// PUT HERE
+A short clip that shows the appearance and reload of the advertisement:
+![Demonstration of ad loading and reloading](/assets/clip.gif)
 
-I hope that this widget helps those out that had a hard time implementing banner ads as much as I did. If you like this implementation feel free to give this repo a star!
+I hope that this widget helps those out that had a hard time implementing banner ads as much as I did. If you like this implementation or think that this widget/repo is useful feel free to give this repo a star!
