@@ -9,12 +9,14 @@ class BannerAdView extends StatefulWidget {
       required this.androidBannerId,
       required this.iOSBannerId,
       required this.isTest,
-      required this.isShown});
+      required this.isShown,
+      required this.bannerSize});
 
   final String androidBannerId;
   final String iOSBannerId;
   final bool isTest;
   final bool isShown;
+  final AdSize bannerSize;
 
   @override
   State<StatefulWidget> createState() {
@@ -36,7 +38,7 @@ class _BannerAdViewState extends State<BannerAdView> {
     _bannerAd = BannerAd(
       adUnitId: adUnitId,
       request: const AdRequest(),
-      size: AdSize.banner,
+      size: widget.bannerSize,
       listener: BannerAdListener(
         // Called when an ad is successfully received.
         onAdLoaded: (ad) {
